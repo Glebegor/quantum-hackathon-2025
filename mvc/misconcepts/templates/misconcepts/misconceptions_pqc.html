@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Difference Between DKQ and PCS | Key Concepts & Misconceptions</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'misconcepts/styles.css' %}" />
     <link rel="stylesheet" href="{% static 'misconcepts/heilf.css' %}" />
-    <link rel="stylesheet" href="{% static 'misconcepts/form.css' %}" />
-
 </head>
 
 <body>
@@ -18,35 +15,49 @@
         <p>Clarifying Key Concepts and Common Misconceptions</p>
     </header>
     <main>
+        <section class="images_of_chlanks">
+            <img src="{% static 'misconcepts/images/image.png' %}" alt="Descriptive alt text">
+        </section>
+        <!-- MAYBE OBRAZKYY -->
         <section>
             <h2>QKD vs. PQC: Common Misconception</h2>
+            <p>
+                <b>Post-Quantum Cryptography (PQC)</b> refers to cryptographic algorithms designed to be secure against attacks from quantum computers. PQC is implemented in software and can run on existing computers and networks, making it practical
+                for widespread adoption. Its goal is to replace or supplement current encryption methods (like RSA and ECC) that could be broken by quantum computers in the future.
+            </p>
+            <p>
+                <b>Quantum Key Distribution (QKD)</b> is a method of securely sharing encryption keys using the principles of quantum physics. Unlike traditional key exchange methods that rely on mathematical problems, QKD uses quantum particles (like
+                photons) to transmit information. If anyone tries to intercept the key, the act of measuring the quantum particles disturbs them, alerting the communicating parties to potential eavesdropping. QKD requires specialized hardware and is mainly
+                used for highly secure communication channels.
+            </p>
             <p>People often think "quantum cryptography" means it's secure against quantum attacks. <br> But QKD is not PQC. QKD uses quantum tech; PQC protects against quantum tech. Just because it says “quantum” doesn’t mean it’s secure against quantum
-                computers. In short: QKD = encryption with quantum tech. PQC = encryption against quantum tech. Understanding this difference helps us prepare smarter for a quantum future.</p>
+                computers. In short: <strong>QKD</strong> = encryption with quantum tech. <strong>PQC</strong> = encryption against quantum tech. Understanding this difference helps us to be better for a quantum future.</p>
         </section>
 
         <section>
             <h2>QKD vs. PQC: Difference</h2>
-            <p>Quantum Key Distribution (QKD) and Post-Quantum Cryptography (PQC) are both related to the future of encryption, but they solve different problems—and are often confused.<br> QKD uses the laws of quantum physics to securely share encryption
-                keys. It doesn't rely on math problems like today’s encryption does. Instead, it uses particles of light (photons) to transmit information. If someone tries to intercept the key, the quantum state changes and the eavesdropping is detected.
-                But QKD needs special hardware (like fiber optics or satellites), making it hard to scale.<br> PQC, on the other hand, is software-based. It’s about developing encryption methods that can resist attacks from quantum computers—which could
-                one day break current encryption like RSA. PQC works on regular devices and networks, making it practical and scalable for real-world use.<br>
-            </p>
+            <p><strong>Quantum Key Distribution (QKD)</strong> and <strong>Post-Quantum Cryptography (PQC)</strong> both address the challenge of securing information in the age of quantum computing—but they approach it in fundamentally different ways, and
+                are often mistakenly conflated.<br><br> QKD leverages the principles of quantum physics to securely distribute encryption keys. Rather than relying on complex mathematical problems (as traditional cryptography does), QKD uses quantum particles—typically
+                photons—to transmit key information. The key feature is that any attempt to intercept the transmission disturbs the quantum state, immediately revealing the presence of an eavesdropper. However, QKD requires specialized infrastructure
+                such as quantum-enabled fiber optics or satellites, which limits its scalability and practical deployment.<br><br> PQC, in contrast, is a software-based solution designed to withstand attacks from powerful quantum computers. It involves
+                creating new cryptographic algorithms that remain secure even if quantum computers can break current standards like <strong>RSA</strong>. Importantly, PQC algorithms can run on existing devices and networks, making them more accessible
+                and scalable for widespread adoption.<br><br>
         </section>
 
         <section>
             <h2>Diffie-hellman: Classical Cryptography Key Distribution</h2>
-            <p>Alice wants to send a secret message to Bob. To keep it safe, she needs to lock it with a "key" — like a password. But Bob needs the same key to unlock (read) it. The big problem? How do Alice and Bob share this secret key without someone
+            <p>Alice wants to send a secret message to Bob. To keep it safe, she needs to lock it with a "key" — like a password. But Bob needs the same key to decrypt (read) it. The big problem? How do Alice and Bob share this secret key without someone
                 else seeing it? In classical cryptography, they need to find a secure way to share the key first. That could mean: Meeting in person and writing it down. Sending it by trusted courier. Calling on a secure phone. Once Bob has the key, Alice
-                can lock her message, and Bob can unlock it. But if anyone (like Eve, the eavesdropper) gets the key, she can also read the message. So, the key distribution problem is: How do Alice and Bob share the key secretly in the first place? That’s
-                why classical methods can be risky — if the key is intercepted during sharing, the whole system is broken.</p>
+                can encrypt her message, and Bob can decrypt it. But if anyone (like Eve, the eavesdropper) gets the key, she can also read the message. So, the key distribution problem is: How do Alice and Bob share the key secretly in the first place?
+                That’s why classical methods can be risky — if the key is intercepted during sharing, the whole system is broken.</p>
             <div class="container">
                 <h1>Diffie-Hellman Key Exchange</h1>
-                <div class="label">Public values: <span class="public">g = 5</span>, <span class="public">p = 23</span></div>
                 <div class="row">
                     <div class="party" id="alice">
                         Alice<br>
-                        <span class="label">Private: <span class="secret" id="a">?</span></span>
-                        <span class="label">Public: <span class="public" id="A">?</span></span>
+                        <div class="label label-private">Private</div>
+                        <div class="label label-public">Public</div>
+                        <div class="label label-public " id="label-public-1">Bob Public</div>
                     </div>
                     <div class="arrow" id="arrowAtoB">
                         <div class="arrow-line"></div>
@@ -54,8 +65,9 @@
                     </div>
                     <div class="party" id="bob">
                         Bob<br>
-                        <span class="label">Private: <span class="secret" id="b">?</span></span>
-                        <span class="label">Public: <span class="public" id="B">?</span></span>
+                        <div class="label label-private">Private</div>
+                        <div class="label label-public">Public</div>
+                        <div class="label label-public" id="label-public-2">Alice Public</div>
                     </div>
                     <div class="arrow" id="arrowBtoA" style="left:auto; right:140px; flex-direction: row-reverse;">
                         <div class="arrow-line"></div>
@@ -64,133 +76,263 @@
                 </div>
                 <div class="shared-key" id="sharedKey"></div>
                 <button id="startBtn">Start Animation</button>
-                <div class="explanation" id="explanation"></div>
+                <div class="explanation" id="explanation1"></div>
             </div>
         </section>
 
         <section>
-            <h2>BB84: Quantum Cryptography </h2>
+            <h2>BB84: Quantum Cryptography Key Distribution</h2>
             <p>
+                <p>Imagine you are <strong>Alice</strong> and you want to share a secret key to encrypt messages with your friend <strong>Bob</strong>. Normally, you would establish it by communicating with the other party, but you are concerned that someone
+                    might be <strong>listening</strong> or even <strong>collecting your communications</strong> for the future. Current methods rely on <strong>hard mathematical problems</strong> that today's computers cannot solve in a reasonable amount
+                    of time, but this may eventually change with the development of <strong>quantum computers</strong> 🧮. However, <strong>quantum physics</strong> offers a new approach that can <strong>spot an eavesdropper in action</strong>. It’s called
+                    <strong>BB84</strong> 🔐 and it doesn’t just protect your messages — <strong>it tells you if someone tried to spy on it</strong>.</p>
+
+                <p>You can use tiny light particles called <strong>photons</strong> 🔆 to help Bob build it with you, bit by bit. Before sending a photon, you <strong>randomly</strong> pick a way to prepare it — such as what information it carries and what
+                    kind of <strong>sunglasses 🕶️</strong> Bob should look at it with. Bob receives the photon from you and, unaware of your choice, also <strong>randomly</strong> picks sunglasses to look at the photon. If he chooses the same thing as
+                    you, he sees what he was supposed to. If not, he might get a different outcome.</p>
+
+                <p>Later, they compare which <strong>sunglasses</strong> they used and keep only the results where they matched ✅. After many attempts, this gives them a <strong>shared secret</strong> — a key they can use to encrypt messages 🔑.</p>
+
+                <p>Now comes the twist: If someone tries to intercept the photon, they have to <strong>guess</strong> how to look at it. Guess wrong, and they <strong>change the particle</strong> without meaning to ⚠️. When Bob gets the altered photon, he
+                    might see a result that no longer matches what Alice sent. By checking just a few parts of their shared key, Alice and Bob can <strong>spot signs of tampering</strong> and throw away the key if anything looks suspicious.</p>
+
+                <p><strong>BB84 doesn’t rely on unbreakable math</strong>. It relies on the <strong>rules of quantum physics</strong> — where even <strong>observation can leave a trace</strong> 🔍. That makes it one of the first methods in history where
+                    <strong>security doesn’t just protect — it watches back</strong> 👁️.</p>
+            </p>
+            <div class="container ">
+                <h1>BB84: Quantum Key Animation</h1>
+                <div class="animation-area">
+                    <div class="alice" id="aliceBox">
+                        Alice<br>
+                        <span id="aliceBit"></span>
+                        <span id="aliceGlasses"></span>
+                    </div>
+                    <div class="photon" id="photonBox"></div>
+                    <div class="arrow" id="arrowBox">
+                        <div class="arrow-head"></div>
+                    </div>
+                    <div class="bob" id="bobBox">
+                        Bob<br>
+                        <span id="bobGlasses"></span>
+                        <span id="bobResult"></span>
+                    </div>
+                </div>
+                <div class="step-explanation" id="explanation2"></div>
+                <button class="next-btn" id="nextBtn">Next Step</button>
+            </div>
 
             </p>
         </section>
 
         <section>
-            <h2>AI Quiz</h2>
+            <h2>Try Yourself</h2>
+            <p>
+                Using AI to check your answer provides instant, personalized feedback and explanations. AI can help clarify misunderstandings, reinforce correct concepts, and guide you toward the right answer if you’re unsure. This interactive support makes learning
+                more effective and helps you build confidence in complex topics like quantum cryptography.
+            </p>
             <p>
                 <div class="ai-explain-module">
                     <div class="ai-explain-title">Explain How It Works</div>
-                    <form id="aiExplainForm" autocomplete="off">
-                        <label class="ai-explain-label" for="userInput">
-      Enter a concept or process you want explained:
-    </label>
+                    <!-- <form id="aiExplainForm" autocomplete="off">
+                        <label class="ai-explain-label" for="userInput">Enter a concept or process you want explained:</label>
                         <input type="text" id="userInput" class="ai-explain-input" name="userInput" placeholder="e.g., How does a quantum computer work?" required />
                         <button type="submit" class="ai-explain-btn">Ask AI</button>
+                    </form> -->
+                    <form id="aiExplainForm" autocomplete="off" method="post">
+                        {% csrf_token %} {{ form.as_p }}
+                        <button type="submit" class="ai-explain-btn">Ask AI</button>
                     </form>
-                    <div class="ai-explain-response" id="aiExplainResponse">
-                    </div>
+                    {% if result %}
+                    <div class="ai-explain-result">{{ result }}</div>
+                    {% endif %}
                 </div>
             </p>
         </section>
 
         <section>
-            <h2>Jupyter notebook
-
-            </h2>
-            <p></p>
+            <h2>Jupyter notebook</h2>
+            <p>
+                A Jupyter notebook can be used to simulate and visualize the differences between QKD and PQC, helping to clear up common misconceptions. By running interactive Python code, users can see how quantum key distribution (like BB84) works step by step, and
+                compare it to classical or post-quantum cryptography. This hands-on approach makes abstract concepts more concrete, allowing learners to experiment, visualize key exchanges, and understand why “quantum” doesn’t always mean “quantum-safe.”
+            </p>
+            <div style="margin: 2em 0; text-align: center;">
+                <iframe src="http://172.16.108.75:8888/notebooks/PV275_2024_Programming_03_Simple_BB84.ipynb" width="100%" height="500" frameborder="0" allowfullscreen title="Jupyter Notebook Demo" class="jupyter-demo"></iframe>
+            </div>
         </section>
 
     </main>
     <script>
-        // Example values
-        const g = 5,
-            p = 23;
-        const a = 6,
-            b = 15; // Alice's and Bob's private keys
-        function modPow(base, exp, mod) {
-            let r = 1;
-            base = base % mod;
-            while (exp > 0) {
-                if (exp % 2 === 1) r = (r * base) % mod;
-                exp = Math.floor(exp / 2);
-                base = (base * base) % mod;
-            }
-            return r;
-        }
-        const A = modPow(g, a, p);
-        const B = modPow(g, b, p);
-        const shared = modPow(B, a, p);
-
         // DOM elements
-        const alicePrivate = document.getElementById('a');
-        const bobPrivate = document.getElementById('b');
-        const alicePublic = document.getElementById('A');
-        const bobPublic = document.getElementById('B');
+        const label_1 = document.getElementById('label-public-1');
+        const label_2 = document.getElementById('label-public-2');
         const arrowAtoB = document.getElementById('arrowAtoB');
         const arrowBtoA = document.getElementById('arrowBtoA');
         const sharedKey = document.getElementById('sharedKey');
-        const explanation = document.getElementById('explanation');
+        const explanationDiffie = document.getElementById('explanation1');
         const startBtn = document.getElementById('startBtn');
 
+        let stepDiffie = 0;
+        const steps = [
+            function step1() {
+                reset();
+                explanationDiffie.textContent = "Step 1: Alice and Bob each pick a secret number that nobody else knows.";
+            },
+            function step2() {
+                explanationDiffie.textContent = "Step 2: They use their secret numbers to make a special code to share with each other.";
+            },
+            function step3() {
+                arrowAtoB.classList.add('visible');
+                explanationDiffie.textContent = "Step 3: Alice sends her special code to Bob.";
+                label_2.classList.add('visible');
+            },
+            function step4() {
+                arrowAtoB.classList.remove('visible');
+                arrowBtoA.classList.add('visible');
+                explanationDiffie.textContent = "Step 4: Bob sends his special code to Alice.";
+                label_1.classList.add('visible');
+
+            },
+            function step5() {
+                arrowBtoA.classList.remove('visible');
+                explanationDiffie.textContent = "Step 5: Now, Alice and Bob use the codes they got from each other, along with their own secret numbers, to make a magic key.";
+            },
+            function step6() {
+                sharedKey.textContent = "Magic key: Only Alice and Bob know it!";
+                sharedKey.classList.add('visible');
+                explanationDiffie.textContent = "Now Alice and Bob both have the same magic key, and nobody else can figure it out!";
+            }
+        ];
+
         function reset() {
-            alicePrivate.textContent = '?';
-            bobPrivate.textContent = '?';
-            alicePublic.textContent = '?';
-            bobPublic.textContent = '?';
             arrowAtoB.classList.remove('visible');
             arrowBtoA.classList.remove('visible');
             sharedKey.classList.remove('visible');
             sharedKey.textContent = '';
-            explanation.textContent = '';
-            startBtn.disabled = false;
+            explanationDiffie.textContent = '';
+            label_1.classList.remove('visible');
+            label_2.classList.remove('visible');
         }
 
-        function animateDH() {
-            reset();
-            startBtn.disabled = true;
+        startBtn.addEventListener('click', () => {
+            if (stepDiffie < steps.length) {
+                steps[stepDiffie]();
+                stepDiffie++;
+                if (stepDiffie === steps.length) {
+                    startBtn.textContent = "Reset";
+                } else {
+                    startBtn.textContent = "Next Step";
+                }
+            } else {
+                reset();
+                stepDiffie = 0;
+                startBtn.textContent = "Start Animation";
+            }
+        });
 
-            // Step 1: Show private keys
-            setTimeout(() => {
-                alicePrivate.textContent = a;
-                bobPrivate.textContent = b;
-                explanation.textContent = "Step 1: Alice and Bob choose their private keys (a and b).";
-            }, 1000);
-
-            // Step 2: Show public keys
-            setTimeout(() => {
-                alicePublic.textContent = A;
-                bobPublic.textContent = B;
-                explanation.textContent = "Step 2: Alice and Bob compute their public values: A = g^a mod p, B = g^b mod p.";
-            }, 5000);
-
-            // Step 3: Animate exchange
-            setTimeout(() => {
-                arrowAtoB.classList.add('visible');
-                explanation.textContent = "Step 3: Alice sends her public value (A) to Bob.";
-            }, 9000);
-
-            setTimeout(() => {
-                arrowAtoB.classList.remove('visible');
-                arrowBtoA.classList.add('visible');
-                explanation.textContent = "Step 4: Bob sends his public value (B) to Alice.";
-            }, 13000);
-
-            setTimeout(() => {
-                arrowBtoA.classList.remove('visible');
-                explanation.textContent = "Step 5: Both compute the shared secret using the other's public value. Shared key = (other's public)^private mod p.";
-            }, 17000);
-
-            // Step 4: Show shared key
-            setTimeout(() => {
-                sharedKey.textContent = `Shared secret key: ${shared}`;
-                sharedKey.classList.add('visible');
-                explanation.textContent = "Now both Alice and Bob have the same shared secret key!";
-                startBtn.disabled = false;
-            }, 21000);
-        }
-
-        startBtn.addEventListener('click', animateDH);
+        // Initial state
         reset();
+        startBtn.textContent = "Start Animation";
+    </script>
+    <script>
+        // BB84 protocol demo: one photon per step, no math, just story and sunglasses
+        const sunglasses = [{
+            name: "Rectangular",
+            emoji: "🕶️",
+            desc: "rectangular sunglasses"
+        }, {
+            name: "Diagonal",
+            emoji: "😎",
+            desc: "diagonal sunglasses"
+        }];
+        // For demo, generate random choices
+        let aliceBit = Math.round(Math.random());
+        let aliceGlasses = sunglasses[Math.floor(Math.random() * 2)];
+        let bobGlasses = sunglasses[Math.floor(Math.random() * 2)];
+        let bobResult = null;
+        let match = null;
+
+        // Step tracker
+        let stepBB84 = 0;
+
+        // DOM
+        const aliceBitSpan = document.getElementById('aliceBit');
+        const aliceGlassesSpan = document.getElementById('aliceGlasses');
+        const photonBox = document.getElementById('photonBox');
+        const arrowBox = document.getElementById('arrowBox');
+        const bobGlassesSpan = document.getElementById('bobGlasses');
+        const bobResultSpan = document.getElementById('bobResult');
+        const explanationBB84 = document.getElementById('explanation2');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function resetDemo() {
+            aliceBit = Math.round(Math.random());
+            aliceGlasses = sunglasses[Math.floor(Math.random() * 2)];
+            bobGlasses = sunglasses[Math.floor(Math.random() * 2)];
+            bobResult = null;
+            match = null;
+            stepBB84 = 0;
+            aliceBitSpan.textContent = '';
+            aliceGlassesSpan.textContent = '';
+            bobGlassesSpan.textContent = '';
+            bobResultSpan.textContent = '';
+            photonBox.textContent = '';
+            photonBox.style.opacity = 0;
+            arrowBox.classList.remove('visible');
+            explanationBB84.textContent = '';
+            nextBtn.textContent = 'Next Step';
+        }
+
+        function nextStep() {
+            stepBB84++;
+            if (stepBB84 === 1) {
+                // Alice chooses bit and sunglasses
+                aliceBitSpan.innerHTML = 'Bit: <span class="bit">' + aliceBit + '</span>';
+                aliceGlassesSpan.innerHTML = 'Sunglasses: <span class="glasses">' + aliceGlasses.emoji + ' ' + aliceGlasses.name + '</span>';
+                explanationBB84.innerHTML = `<b>Step 1:</b> Alice decides what her secret bit will be (<span class="bit">${aliceBit}</span>), and randomly picks a pair of sunglasses (<span class="glasses">${aliceGlasses.emoji} ${aliceGlasses.name}</span>) to prepare her photon.`;
+            } else if (stepBB84 === 2) {
+                // Alice sends photon to Bob
+                photonBox.textContent = aliceGlasses.emoji + " " + (aliceBit === 0 ? "Light Off" : "Light On");
+                photonBox.style.left = '150px';
+                photonBox.classList.add('visible');
+                arrowBox.classList.add('visible');
+                explanationBB84.innerHTML = `<b>Step 2:</b> Alice sends a photon, prepared with her bit and sunglasses, across to Bob.`;
+            } else if (stepBB84 === 3) {
+                // Animate photon moving to Bob
+                photonBox.style.left = '370px';
+                explanationBB84.innerHTML = `<b>Step 3:</b> The photon is on its way to Bob.`;
+            } else if (stepBB84 === 4) {
+                // Bob chooses sunglasses and "measures"
+                arrowBox.classList.remove('visible');
+                bobGlassesSpan.innerHTML = 'Sunglasses: <span class="glasses">' + bobGlasses.emoji + ' ' + bobGlasses.name + '</span>';
+                // If Bob's glasses match Alice's, he gets the right bit; else, random
+                if (bobGlasses.name === aliceGlasses.name) {
+                    bobResult = aliceBit;
+                    match = true;
+                } else {
+                    bobResult = Math.round(Math.random());
+                    match = false;
+                }
+                explanationBB84.innerHTML = `<b>Step 4:</b> Bob, not knowing which sunglasses Alice used, randomly picks his own (<span class="glasses">${bobGlasses.emoji} ${bobGlasses.name}</span>) to look at the photon.`;
+            } else if (stepBB84 === 5) {
+                // Show Bob's result
+                bobResultSpan.innerHTML = 'Result: <span class="bit">' + bobResult + '</span>';
+                explanationBB84.innerHTML = `<b>Step 5:</b> Bob sees the result: <span class="bit">${bobResult}</span>. If he picked the same sunglasses as Alice, he sees what she sent. If not, he might see something else.`;
+            } else if (stepBB84 === 6) {
+                // Sifting step
+                explanationBB84.innerHTML = `<b>Step 6:</b> Alice and Bob compare their sunglasses.<br>
+        ${match
+          ? `<span class="result">They matched! This bit is added to their secret key.</span>`
+          : `<span class="result">They didn't match. They discard this bit and try again.</span>`
+        }`;
+      nextBtn.textContent = 'Restart';
+    } else {
+      resetDemo();
+    }
+  }
+
+  nextBtn.addEventListener('click', nextStep);
+  resetDemo();
     </script>
 </body>
 

@@ -60,7 +60,7 @@ h1 {
 
 .arrow-line {
     height: 6px;
-    background: #ffdc00;
+    background: #0074d9;
     flex: 1;
     border-radius: 3px;
     margin-right: 10px;
@@ -71,13 +71,40 @@ h1 {
     height: 0;
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
-    border-left: 18px solid #ffdc00;
+    border-left: 18px solid #0074d9;
+}
+
+#label-public-1 {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#label-public-2 {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#label-public-2.visible {
+    opacity: 1;
+}
+
+#label-public-1.visible {
+    opacity: 1;
 }
 
 .label {
     font-size: 1rem;
     color: #444;
     margin: 0.5rem 0;
+}
+
+.label-private {
+    color: #ff851b!important;
+    ;
+}
+
+.label-public {
+    color: #2ecc40!important;
 }
 
 .public {
@@ -128,4 +155,323 @@ button {
 
 button:hover {
     background: #005fa3;
+}
+
+.ai-explain-module {
+    max-width: 480px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 16px #d3e0ea;
+    padding: 2rem 1.5rem;
+}
+
+.ai-explain-title {
+    padding: 10px;
+    font-size: 1.4rem;
+    color: #004080;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ai-explain-result {
+    padding: 10px;
+}
+
+.ai-explain-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.ai-explain-input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1.5px solid #bcd;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    transition: border 0.2s;
+    box-sizing: border-box;
+}
+
+.ai-explain-input:focus {
+    border-color: #0074d9;
+    outline: none;
+}
+
+.ai-explain-btn {
+    background: #0074d9;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+}
+
+.ai-explain-btn:hover {
+    background: #005fa3;
+}
+
+.ai-explain-response {
+    margin-top: 1.5rem;
+    background: #eaf6ff;
+    border-radius: 7px;
+    padding: 1rem;
+    font-size: 1.03rem;
+    color: #222;
+    min-height: 40px;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f8fcff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 540px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px #cde7fa;
+    padding: 2rem 1.5rem 2.5rem 1.5rem;
+}
+
+h1 {
+    text-align: center;
+    color: #0074d9;
+    margin-bottom: 1.2rem;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.bb84-story {
+    color: #234;
+    font-size: 1.1rem;
+    background: #fff8e1;
+    border-radius: 8px;
+    padding: 1.1rem 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.animation-area {
+    min-height: 170px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.alice,
+.bob {
+    width: 110px;
+    height: 90px;
+    background: #0074d9;
+    color: #fff;
+    border-radius: 12px;
+    padding: 0.7rem 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.08rem;
+    position: absolute;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px #0074d9;
+}
+
+.alice {
+    left: 10px;
+}
+
+.bob {
+    right: 10px;
+}
+
+.photon {
+    position: absolute;
+    left: 130px;
+    top: 70px;
+    width: 70px;
+    height: 38px;
+    background: #fffde7;
+    color: #222;
+    border-radius: 20px;
+    border: 2.5px solid #0074d9;
+    text-align: center;
+    line-height: 38px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: left 1s, opacity 0.5s;
+    z-index: 2;
+    box-shadow: 0 1px 8px #ffe066;
+}
+
+.photon.visible {
+    opacity: 1;
+}
+
+.arrow {
+    position: absolute;
+    left: 170px;
+    top: 90px;
+    width: 100px;
+    height: 10px;
+    border-top: 4px solid #0074d9;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.arrow.visible {
+    opacity: 1;
+}
+
+.arrow-head {
+    position: absolute;
+    right: -11px;
+    top: -7px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid #0074d9;
+}
+
+.step-explanation {
+    background: #e3f2fd;
+    border-radius: 8px;
+    padding: 1.1rem 1rem;
+    font-size: 1.08rem;
+    color: #234;
+    min-height: 60px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #0074d9;
+    box-shadow: 0 1px 4px #e5f1fb;
+}
+
+.next-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 0.8rem 2.2rem;
+    font-size: 1.09rem;
+    background: #0074d9;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px #ffe0b2;
+}
+
+.next-btn:hover {
+    background: #0074d9;
+}
+
+.glasses {
+    font-weight: bold;
+    color: #cc0000;
+}
+
+.bit {
+    font-weight: bold;
+    color: #00c853;
+}
+
+.result {
+    font-weight: bold;
+    color: #d500f9;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem 0.2rem 2rem 0.2rem;
+    }
+    .alice,
+    .bob {
+        width: 90px;
+        font-size: 0.98rem;
+    }
+    .animation-area {
+        min-height: 120px;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #004080;
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+h1,
+h2 {
+    color: #004080;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+.misconceptions {
+    background-color: #ffe6e6;
+    border-left: 5px solid #cc0000;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.images_of_chlanks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.images_of_chlanks img {
+    width: 60%;
+    height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #004080;
+}
+
+.jupyter-demo {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
