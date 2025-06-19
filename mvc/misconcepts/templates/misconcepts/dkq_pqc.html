@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Difference Between DKQ and PCS | Key Concepts & Misconceptions</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'misconcepts/diff_helman.css' %}">
+    <link rel="stylesheet" href="{% static 'misconcepts/dkq_pqc.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Understanding the Difference Between DKQ and PCS</h1>
+        <p>Clarifying Key Concepts and Common Misconceptions</p>
+    </header>
+    <main>
+        <section>
+            <h2>QKD vs. PQC: Common misconception</h2>
+            <p>People often think "quantum cryptography" means it's secure against quantum attacks. But QKD is not PQC. QKD uses quantum tech; PQC protects against quantum tech. Just because it says “quantum” doesn’t mean it’s secure against quantum computers.
+                In short: QKD = encryption with quantum tech. PQC = encryption against quantum tech. Understanding this difference helps us prepare smarter for a quantum future.</p>
+        </section>
+
+        <section>
+            <h2>QKD vs. PQC: Understanding the Difference</h2>
+            <p>Quantum Key Distribution (QKD) and Post-Quantum Cryptography (PQC) are both related to the future of encryption, but they solve different problems—and are often confused. QKD uses the laws of quantum physics to securely share encryption keys.
+                It doesn't rely on math problems like today’s encryption does. Instead, it uses particles of light (photons) to transmit information. If someone tries to intercept the key, the quantum state changes and the eavesdropping is detected. But
+                QKD needs special hardware (like fiber optics or satellites), making it hard to scale. PQC, on the other hand, is software-based. It’s about developing encryption methods that can resist attacks from quantum computers—which could one day
+                break current encryption like RSA. PQC works on regular devices and networks, making it practical and scalable for real-world use.
+            </p>
+
+        </section>
+
+        <section>
+            <h2>Diffie-hellman: Classical Cryptography Key Distribution</h2>
+            <p></p>
+            <div class="container">
+                <h1>Diffie-Hellman Key Exchange</h1>
+                <div class="label">Public values: <span class="public">g = 5</span>, <span class="public">p = 23</span></div>
+                <div class="row">
+                    <div class="party" id="alice">
+                        Alice<br>
+                        <span class="label">Private: <span class="secret" id="a">?</span></span>
+                        <span class="label">Public: <span class="public" id="A">?</span></span>
+                    </div>
+                    <div class="arrow" id="arrowAtoB">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-head"></div>
+                    </div>
+                    <div class="party" id="bob">
+                        Bob<br>
+                        <span class="label">Private: <span class="secret" id="b">?</span></span>
+                        <span class="label">Public: <span class="public" id="B">?</span></span>
+                    </div>
+                    <div class="arrow" id="arrowBtoA" style="left:auto; right:140px; flex-direction: row-reverse;">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-head" style="transform: rotate(180deg);"></div>
+                    </div>
+                </div>
+                <div class="shared-key" id="sharedKey"></div>
+                <button id="startBtn">Start Animation</button>
+                <div class="explanation" id="explanation"></div>
+            </div>
+        </section>-
+
+        <section>
+            <h2>BB84: Quantum Cryptography Key Distribution</h2>
+            <p></p>
+            <!-- gif -->
+        </section>
+
+        <section>
+            <h2>AI otaznik (LLM of IBM)</h2>
+            <p></p>
+
+        </section>
+        <section>
+            <h2>Jupyter notebook s prikladem BB84</h2>
+            <p></p>
+
+        </section>
+    </main>
+    <script>
+        // Example values
+        const g = 5,
+            p = 23;
+        const a = 6,
+            b = 15; // Alice's and Bob's private keys
+        function modPow(base, exp, mod) {
+            let r = 1;
+            base = base % mod;
+            while (exp > 0) {
+                if (exp % 2 === 1) r = (r * base) % mod;
+                exp = Math.floor(exp / 2);
+                base = (base * base) % mod;
+            }
+            return r;
+        }
+        const A = modPow(g, a, p);
+        const B = modPow(g, b, p);
+        const shared = modPow(B, a, p);
+
+        // DOM elements
+        const alicePrivate = document.getElementById('a');
+        const bobPrivate = document.getElementById('b');
+        const alicePublic = document.getElementById('A');
+        const bobPublic = document.getElementById('B');
+        const arrowAtoB = document.getElementById('arrowAtoB');
+        const arrowBtoA = document.getElementById('arrowBtoA');
+        const sharedKey = document.getElementById('sharedKey');
+        const explanation = document.getElementById('explanation');
+        const startBtn = document.getElementById('startBtn');
+
+        function reset() {
+            alicePrivate.textContent = '?';
+            bobPrivate.textContent = '?';
+            alicePublic.textContent = '?';
+            bobPublic.textContent = '?';
+            arrowAtoB.classList.remove('visible');
+            arrowBtoA.classList.remove('visible');
+            sharedKey.classList.remove('visible');
+            sharedKey.textContent = '';
+            explanation.textContent = '';
+            startBtn.disabled = false;
+        }
+
+        function animateDH() {
+            reset();
+            startBtn.disabled = true;
+
+            // Step 1: Show private keys
+            setTimeout(() => {
+                alicePrivate.textContent = a;
+                bobPrivate.textContent = b;
+                explanation.textContent = "Step 1: Alice and Bob choose their private keys (a and b).";
+            }, 1000);
+
+            // Step 2: Show public keys
+            setTimeout(() => {
+                alicePublic.textContent = A;
+                bobPublic.textContent = B;
+                explanation.textContent = "Step 2: Alice and Bob compute their public values: A = g^a mod p, B = g^b mod p.";
+            }, 5000);
+
+            // Step 3: Animate exchange
+            setTimeout(() => {
+                arrowAtoB.classList.add('visible');
+                explanation.textContent = "Step 3: Alice sends her public value (A) to Bob.";
+            }, 11000);
+
+            setTimeout(() => {
+                arrowAtoB.classList.remove('visible');
+                arrowBtoA.classList.add('visible');
+                explanation.textContent = "Step 4: Bob sends his public value (B) to Alice.";
+            }, 15000);
+
+            setTimeout(() => {
+                arrowBtoA.classList.remove('visible');
+                explanation.textContent = "Step 5: Both compute the shared secret using the other's public value. Shared key = (other's public)^private mod p.";
+            }, 19000);
+
+            // Step 4: Show shared key
+            setTimeout(() => {
+                sharedKey.textContent = `Shared secret key: ${shared}`;
+                sharedKey.classList.add('visible');
+                explanation.textContent = "Now both Alice and Bob have the same shared secret key!";
+                startBtn.disabled = false;
+            }, 23000);
+        }
+
+        startBtn.addEventListener('click', animateDH);
+        reset();
+    </script>
+</body>
+
+</html>

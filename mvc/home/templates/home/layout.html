@@ -1,0 +1,33 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Quantum Hackathon{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% block head %}
+    <link rel="stylesheet" href="{% static 'style.css' %}"> {% endblock %}
+</head>
+
+<body>
+    <header>
+        <h1>🧠 Quantum Hackathon 2025</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/circuits/">Circuits</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <p>Welcome to the Quantum Hackathon!</p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <small>&copy; 2025 Quantum Project</small>
+    </footer>
+</body>
+
+</html>
