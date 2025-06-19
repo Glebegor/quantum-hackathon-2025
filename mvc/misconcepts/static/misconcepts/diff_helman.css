@@ -1,0 +1,125 @@
+ h1 {
+     text-align: center;
+     color: #004080;
+ }
+ 
+ .container {
+     max-width: 700px;
+     margin: 30px auto;
+     background: #fff;
+     border-radius: 12px;
+     box-shadow: 0 0 12px #bcd;
+     padding: 2rem;
+ }
+ 
+ .row {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 2rem 0;
+     position: relative;
+ }
+ 
+ .party {
+     width: 120px;
+     height: 120px;
+     background: #0074d9;
+     color: #fff;
+     border-radius: 12px;
+     padding: 1rem;
+     font-weight: bold;
+     text-align: center;
+     font-size: 1.1rem;
+     position: relative;
+     z-index: 2;
+ }
+ 
+ .arrow {
+     width: 200px;
+     height: 40px;
+     position: absolute;
+     top: 40px;
+     left: 140px;
+     display: flex;
+     align-items: center;
+     opacity: 0;
+     transition: opacity 0.5s;
+     z-index: 1;
+ }
+ 
+ .arrow.visible {
+     opacity: 1;
+ }
+ 
+ .arrow-line {
+     height: 6px;
+     background: #ffdc00;
+     flex: 1;
+     border-radius: 3px;
+     margin-right: 10px;
+ }
+ 
+ .arrow-head {
+     width: 0;
+     height: 0;
+     border-top: 12px solid transparent;
+     border-bottom: 12px solid transparent;
+     border-left: 18px solid #ffdc00;
+ }
+ 
+ .label {
+     font-size: 1rem;
+     color: #444;
+     margin: 0.5rem 0;
+ }
+ 
+ .public {
+     color: #ff851b;
+     font-weight: bold;
+ }
+ 
+ .secret {
+     color: #2ecc40;
+     font-weight: bold;
+ }
+ 
+ .shared-key {
+     text-align: center;
+     margin-top: 2rem;
+     font-size: 1.3rem;
+     color: #2ecc40;
+     font-weight: bold;
+     opacity: 0;
+     transition: opacity 0.7s;
+ }
+ 
+ .shared-key.visible {
+     opacity: 1;
+ }
+ 
+ .explanation {
+     transition: .7s;
+     margin-top: 1.5rem;
+     font-size: 0.98rem;
+     color: #333;
+     background: #eaf6ff;
+     border-radius: 8px;
+     padding: 1rem;
+ }
+ 
+ button {
+     display: block;
+     margin: 2rem auto 0 auto;
+     padding: 0.7rem 2rem;
+     font-size: 1rem;
+     background: #0074d9;
+     color: #fff;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     transition: background 0.2s;
+ }
+ 
+ button:hover {
+     background: #005fa3;
+ }
