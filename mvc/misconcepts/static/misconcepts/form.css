@@ -1,0 +1,69 @@
+ .ai-explain-module {
+     max-width: 480px;
+     margin: 2rem auto;
+     background: #fff;
+     border-radius: 10px;
+     box-shadow: 0 2px 16px #d3e0ea;
+     padding: 2rem 1.5rem;
+     font-family: 'Segoe UI', Arial, sans-serif;
+ }
+ 
+ .ai-explain-title {
+     font-size: 1.4rem;
+     color: #004080;
+     margin-bottom: 1rem;
+     font-weight: bold;
+     text-align: center;
+ }
+ 
+ .ai-explain-label {
+     display: block;
+     margin-bottom: 0.5rem;
+     color: #333;
+     font-size: 1rem;
+     font-weight: 500;
+ }
+ 
+ .ai-explain-input {
+     width: 100%;
+     padding: 0.7rem;
+     border: 1.5px solid #bcd;
+     border-radius: 6px;
+     font-size: 1rem;
+     margin-bottom: 1.2rem;
+     transition: border 0.2s;
+     box-sizing: border-box;
+ }
+ 
+ .ai-explain-input:focus {
+     border-color: #0074d9;
+     outline: none;
+ }
+ 
+ .ai-explain-btn {
+     background: #0074d9;
+     color: #fff;
+     border: none;
+     border-radius: 6px;
+     padding: 0.7rem 1.5rem;
+     font-size: 1rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: background 0.2s;
+     width: 100%;
+ }
+ 
+ .ai-explain-btn:hover {
+     background: #005fa3;
+ }
+ 
+ .ai-explain-response {
+     margin-top: 1.5rem;
+     background: #eaf6ff;
+     border-radius: 7px;
+     padding: 1rem;
+     font-size: 1.03rem;
+     color: #222;
+     min-height: 40px;
+     box-sizing: border-box;
+ }

@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def page_misconcept_pqc(request):
+    """
+    Render the misconceptions page.
+    """
+    return render(request, 'misconcepts/misconceptions_pqc.html')
