@@ -1,2 +1,0 @@
-# Quantum Hakcathon Application
-## Description
