@@ -14,21 +14,23 @@
         <h1 class="">Understanding the Difference Between DKQ and PCS</h1>
         <p>Clarifying Key Concepts and Common Misconceptions</p>
     </header>
+
     <main>
+
 
         <!-- MAYBE OBRAZKYY -->
         <section>
-            <h2>QKD vs. PQC: Common Misconception</h2>
-            <p>
+            <h2 class="animate-on-scroll">QKD vs. PQC: Common Misconception</h2>
+            <p class="animate-on-scroll">
                 <b>Post-Quantum Cryptography (PQC)</b> refers to cryptographic algorithms designed to be secure against attacks from quantum computers. PQC is implemented in software and can run on existing computers and networks, making it practical
                 for widespread adoption. Its goal is to replace or supplement current encryption methods (like RSA and ECC) that could be broken by quantum computers in the future.
             </p>
-            <p>
+            <p class="animate-on-scroll">
                 <b>Quantum Key Distribution (QKD)</b> is a method of securely sharing encryption keys using the principles of quantum physics. Unlike traditional key exchange methods that rely on mathematical problems, QKD uses quantum particles (like
                 photons) to transmit information. If anyone tries to intercept the key, the act of measuring the quantum particles disturbs them, alerting the communicating parties to potential eavesdropping. QKD requires specialized hardware and is mainly
                 used for highly secure communication channels.
             </p>
-            <p>People often think "quantum cryptography" means it's secure against quantum attacks. <br> But QKD is not PQC. QKD uses quantum tech; PQC protects against quantum tech. Just because it says “quantum” doesn’t mean it’s secure against quantum
+            <p class="animate-on-scroll">People often think "quantum cryptography" means it's secure against quantum attacks. <br> But QKD is not PQC. QKD uses quantum tech; PQC protects against quantum tech. Just because it says “quantum” doesn’t mean it’s secure against quantum
                 computers. In short: <strong>QKD</strong> = encryption with quantum tech. <strong>PQC</strong> = encryption against quantum tech. Understanding this difference helps us to be better for a quantum future.</p>
         </section>
 
@@ -37,8 +39,8 @@
         </section>
 
         <section>
-            <h2>QKD vs. PQC: Difference</h2>
-            <p><strong>Quantum Key Distribution (QKD)</strong> and <strong>Post-Quantum Cryptography (PQC)</strong> both address the challenge of securing information in the age of quantum computing—but they approach it in fundamentally different ways, and
+            <h2 class="animate-on-scroll">QKD vs. PQC: Difference</h2>
+            <p class="animate-on-scroll"><strong>Quantum Key Distribution (QKD)</strong> and <strong>Post-Quantum Cryptography (PQC)</strong> both address the challenge of securing information in the age of quantum computing—but they approach it in fundamentally different ways, and
                 are often mistakenly conflated.<br><br> QKD leverages the principles of quantum physics to securely distribute encryption keys. Rather than relying on complex mathematical problems (as traditional cryptography does), QKD uses quantum particles—typically
                 photons—to transmit key information. The key feature is that any attempt to intercept the transmission disturbs the quantum state, immediately revealing the presence of an eavesdropper. However, QKD requires specialized infrastructure
                 such as quantum-enabled fiber optics or satellites, which limits its scalability and practical deployment.<br><br> PQC, in contrast, is a software-based solution designed to withstand attacks from powerful quantum computers. It involves
@@ -47,14 +49,24 @@
         </section>
 
         <section>
-            <h2>Diffie-hellman: Classical Cryptography Key Distribution</h2>
-            <p>Alice wants to send a secret message to Bob. To keep it safe, she needs to lock it with a "key" — like a password. But Bob needs the same key to decrypt (read) it. The big problem? How do Alice and Bob share this secret key without someone
-                else seeing it? In classical cryptography, they need to find a secure way to share the key first. That could mean: Meeting in person and writing it down. Sending it by trusted courier. Calling on a secure phone. Once Bob has the key, Alice
-                can encrypt her message, and Bob can decrypt it. But if anyone (like Eve, the eavesdropper) gets the key, she can also read the message. So, the key distribution problem is: How do Alice and Bob share the key secretly in the first place?
-                That’s why classical methods can be risky — if the key is intercepted during sharing, the whole system is broken.</p>
+            <p class="animate-on-scroll">
+                <h2>Diffie–Hellman: Classical Key Exchange Scheme</h1>
+            </p>
+            <p class="animate-on-scroll">Even without <strong>quantum tricks</strong> like BB84, people still have a clever way to share secret keys — even if they can't meet in person. It’s called the <strong>Diffie–Hellman key exchange</strong>, and it works like <strong>mixing colors 🎨</strong>.</p>
+
+            <p class="animate-on-scroll">Imagine you're <strong>Alice</strong>, and you and your friend <strong>Bob</strong> each have your own <strong>private color</strong> — a secret no one else knows. You also agree on a <strong>public base color</strong> that everyone can see
+                👁️. Then you both mix your private color with the public one and <strong>send the result to the other</strong> 📬.</p>
+
+            <p class="animate-on-scroll">The clever part? Even if someone sees this mix, they can’t easily figure out the <strong>private ingredient</strong> 🧪. When you and Bob take what you received and mix it again with your own secret, you both end up with the <strong>same final color</strong>                — a <strong>shared secret 🔐</strong>. This becomes your <strong>shared key</strong> to encrypt messages.</p>
+
+            <p class="animate-on-scroll">It’s still safe today because it’s based on a <strong>hard mathematical problem</strong>. The “reversing of the color mix” would take current computers a very long time to solve ⏳. But if someone builds a <strong>powerful enough computer</strong>                (like a quantum one), they might break the method ⚠️.</p>
+
+            <p class="animate-on-scroll">So even though <strong>Diffie–Hellman</strong> is revolutionary — letting strangers agree on a secret in plain sight — <strong>its security is not absolute</strong>. That’s where <strong>quantum physics</strong> steps in — offering a new way
+                to share secrets that can even <strong>catch a spy in the act 🕵️</strong>.</p>
+            <h1 class="animate-on-scroll">Diffie-Hellman Key Exchange</h1>
+
             <div class="container">
-                <h1>Diffie-Hellman Key Exchange</h1>
-                <div class="row">
+                <div class="row" class="animate-on-scroll">
                     <div class="party" id="alice">
                         Alice<br>
                         <div class="label label-private">Private</div>
@@ -86,26 +98,26 @@
         </section>
 
         <section>
-            <h2>BB84: Quantum Cryptography Key Distribution</h2>
+            <h2 class="animate-on-scroll">BB84: Quantum Cryptography Key Distribution</h2>
             <p>
-                <p>Imagine you are <strong>Alice</strong> and you want to share a secret key to encrypt messages with your friend <strong>Bob</strong>. Normally, you would establish it by communicating with the other party, but you are concerned that someone
+                <p class="animate-on-scroll">Imagine you are <strong>Alice</strong> and you want to share a secret key to encrypt messages with your friend <strong>Bob</strong>. Normally, you would establish it by communicating with the other party, but you are concerned that someone
                     might be <strong>listening</strong> or even <strong>collecting your communications</strong> for the future. Current methods rely on <strong>hard mathematical problems</strong> that today's computers cannot solve in a reasonable amount
                     of time, but this may eventually change with the development of <strong>quantum computers</strong> 🧮. However, <strong>quantum physics</strong> offers a new approach that can <strong>spot an eavesdropper in action</strong>. It’s called
                     <strong>BB84</strong> 🔐 and it doesn’t just protect your messages — <strong>it tells you if someone tried to spy on it</strong>.</p>
 
-                <p>You can use tiny light particles called <strong>photons</strong> 🔆 to help Bob build it with you, bit by bit. Before sending a photon, you <strong>randomly</strong> pick a way to prepare it — such as what information it carries and what
+                <p class="animate-on-scroll">You can use tiny light particles called <strong>photons</strong> 🔆 to help Bob build it with you, bit by bit. Before sending a photon, you <strong>randomly</strong> pick a way to prepare it — such as what information it carries and what
                     kind of <strong>sunglasses 🕶️</strong> Bob should look at it with. Bob receives the photon from you and, unaware of your choice, also <strong>randomly</strong> picks sunglasses to look at the photon. If he chooses the same thing as
                     you, he sees what he was supposed to. If not, he might get a different outcome.</p>
 
-                <p>Later, they compare which <strong>sunglasses</strong> they used and keep only the results where they matched ✅. After many attempts, this gives them a <strong>shared secret</strong> — a key they can use to encrypt messages 🔑.</p>
+                <p class="animate-on-scroll">Later, they compare which <strong>sunglasses</strong> they used and keep only the results where they matched ✅. After many attempts, this gives them a <strong>shared secret</strong> — a key they can use to encrypt messages 🔑.</p>
 
-                <p>Now comes the twist: If someone tries to intercept the photon, they have to <strong>guess</strong> how to look at it. Guess wrong, and they <strong>change the particle</strong> without meaning to ⚠️. When Bob gets the altered photon, he
+                <p class="animate-on-scroll">Now comes the twist: If someone tries to intercept the photon, they have to <strong>guess</strong> how to look at it. Guess wrong, and they <strong>change the particle</strong> without meaning to ⚠️. When Bob gets the altered photon, he
                     might see a result that no longer matches what Alice sent. By checking just a few parts of their shared key, Alice and Bob can <strong>spot signs of tampering</strong> and throw away the key if anything looks suspicious.</p>
 
-                <p><strong>BB84 doesn’t rely on unbreakable math</strong>. It relies on the <strong>rules of quantum physics</strong> — where even <strong>observation can leave a trace</strong> 🔍. That makes it one of the first methods in history where
+                <p class="animate-on-scroll"><strong>BB84 doesn’t rely on unbreakable math</strong>. It relies on the <strong>rules of quantum physics</strong> — where even <strong>observation can leave a trace</strong> 🔍. That makes it one of the first methods in history where
                     <strong>security doesn’t just protect — it watches back</strong> 👁️.</p>
             </p>
-            <div class="container ">
+            <div class="container animate-on-scroll">
                 <h1>BB84: Quantum Key Animation</h1>
                 <div class="animation-area">
                     <div class="alice" id="aliceBox">
@@ -137,12 +149,12 @@
         </section>
 
         <section>
-            <h2>Try Yourself</h2>
-            <p>
+            <h2 class="animate-on-scroll">Try Yourself</h2>
+            <p class="animate-on-scroll">
                 Using AI to check your answer provides instant, personalized feedback and explanations. AI can help clarify misunderstandings, reinforce correct concepts, and guide you toward the right answer if you’re unsure. This interactive support makes learning
                 more effective and helps you build confidence in complex topics like quantum cryptography.
             </p>
-            <p>
+            <p class="animate-on-scroll">
                 <div class="ai-explain-module">
                     <div class="ai-explain-title">Explain How It Works</div>
 
@@ -158,17 +170,19 @@
         </section>
 
         <section>
-            <h2>Jupyter notebook</h2>
-            <p>
+            <h2 class="animate-on-scroll">Jupyter notebook</h2>
+            <p class="animate-on-scroll">
                 A Jupyter notebook can be used to simulate and visualize the differences between QKD and PQC, helping to clear up common misconceptions. By running interactive Python code, users can see how quantum key distribution (like BB84) works step by step, and
                 compare it to classical or post-quantum cryptography. This hands-on approach makes abstract concepts more concrete, allowing learners to experiment, visualize key exchanges, and understand why “quantum” doesn’t always mean “quantum-safe.”
             </p>
-            <div style="margin: 2em 0; text-align: center;">
+            <div style="margin: 2em 0; text-align: center;" class="animate-on-scroll">
                 <iframe src="http://172.16.108.75:8888/notebooks/PV275_2024_Programming_03_Simple_BB84.ipynb" width="100%" height="500" frameborder="0" allowfullscreen title="Jupyter Notebook Demo" class="jupyter-demo"></iframe>
             </div>
         </section>
 
     </main>
+
+
     <script>
         // DOM elements
         const label_1 = document.getElementById('label-public-1');
@@ -334,6 +348,62 @@
 
   nextBtn.addEventListener('click', nextStep);
   resetDemo();
+    </script>
+
+    <script>
+        function showAnimated(element) {
+            if (!element || element.classList.contains('animated-once')) return;
+            element.classList.add('animate', 'animated-once');
+            element.style.opacity = 0;
+            element.style.display = 'block';
+            setTimeout(() => {
+                element.style.transition = 'opacity 0.7s';
+                element.style.opacity = 1;
+            }, 10);
+            // Optionally remove the class after animation
+            setTimeout(() => {
+                element.classList.remove('animate');
+                element.style.transition = '';
+            }, 800);
+        }
+
+        function animateOnScroll() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll:not(.animated-once)');
+            const windowHeight = window.innerHeight;
+
+            animatedElements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < windowHeight - 250 && rect.bottom > 0) {
+                    showAnimated(element);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('resize', animateOnScroll);
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+        // Scroll to top after Jupyter notebook iframe is loaded
+        const jupyterIframe = document.querySelector('iframe.jupyter-demo');
+        if (jupyterIframe) {
+            jupyterIframe.addEventListener('load', function() {
+                window.scrollTo(0, 0);
+            });
+        }
+
+        const qiskitLogo = document.querySelector('.qiskit-logo');
+        let lastScrollY = window.scrollY;
+
+        function moveQiskitLogo() {
+            if (!qiskitLogo) return;
+            const maxMove = 30; // px
+            const maxScroll = 200; // px
+            const scrollY = Math.min(window.scrollY, maxScroll);
+            const offset = (scrollY / maxScroll) * maxMove;
+            qiskitLogo.style.transform = ``;
+        }
+
+        window.addEventListener('scroll', moveQiskitLogo);
+        document.addEventListener('DOMContentLoaded', moveQiskitLogo);
     </script>
 </body>
 
